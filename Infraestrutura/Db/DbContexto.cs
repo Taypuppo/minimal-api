@@ -19,12 +19,25 @@ namespace MinimalApi.Infraestrutura.Db
 
         public DbSet<Administrador> Administradores { get; set; } = default!;
 
+        public DbSet<Veiculo> Veiculos { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Administrador>().HasData(
+                new Administrador {
+                    Id = 1,
+                    Email = "administrador@teste.com",
+                    Senha = "123456",
+                    Perfil = "Adm"
+                }
+            );
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
 
-            if (optionBuilder.IsConfigured)
             {
-                var stringConexao = _configuracaoAppSettings.GetConnectionString("sql")?.ToString();
+                var stringConexao = _configuracaoAppSettings.GetConnectionString("sql");
                 if (!string.IsNullOrEmpty(stringConexao))
                 {
                     optionBuilder.UseSqlServer(stringConexao);
