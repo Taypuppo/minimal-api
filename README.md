@@ -26,7 +26,7 @@ Aqui está uma captura de tela da interface do Swagger:
 
 
 ## 🧪 Testes
-O projeto inclui testes para garantir a robustez da aplicação. Para executar os testes, utilize:
+O projeto inclui testes para garantir a robustez da aplicação.
 
 
 ## 🤝 Contribuição e Desenvolvimento
